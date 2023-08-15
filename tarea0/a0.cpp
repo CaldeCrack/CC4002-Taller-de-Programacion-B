@@ -1,5 +1,5 @@
+// https://vjudge.net/contest/573906#problem/A
 #include <iostream>
-
 using namespace std;
 
 int w;
