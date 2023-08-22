@@ -5,16 +5,16 @@ int main(){
     int t, power = 0; cin >> t;
     while(t--) {
         int n; cin >> n;
-        stack<int> cards;
+        multiset<int> cards;
         while(n--) {
             int s; cin >> s;
             if(!s && !cards.empty()) {
-                power += cards.top();
-                cards.pop();
+                auto max = --cards.end();
+                power += *max;
+                cards.erase(max);
             }
-            else if(s && (cards.empty() || cards.top() <= s)) {
-                cards.push(s);
-            }
+            else if(s)
+                cards.insert(s);
         }
         cout << power << endl;
         power = 0;
