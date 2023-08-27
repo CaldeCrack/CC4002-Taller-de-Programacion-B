@@ -10,21 +10,20 @@ int main() {
 	set<int> lights{0, x};
 	for (int i : positions)
         lights.insert(i);
-	vector<int> gaps(n);
+	vector<int> distances(n);
 	int prev = 0, max_distance = 1;
 	for (int i : lights) {
 		max_distance = max(max_distance, i - prev);
 		prev = i;
 	}
-	gaps[n-1] = max_distance;
+	distances[n-1] = max_distance;
 	for (int i = n - 1; i > 0; i--) {
 		lights.erase(positions[i]);
 		auto top = lights.upper_bound(positions[i]);
-		int upper = *top;
-		int lower = *(--top);
+		int upper = *top, lower = *(--top);
 		max_distance = max(max_distance, upper - lower);
-		gaps[i - 1] = max_distance;
+		distances[i-1] = max_distance;
 	}
-	for (int i : gaps)
-        cout << i << ' ';
+	for (int i : distances)
+        cout << i << " ";
 }
