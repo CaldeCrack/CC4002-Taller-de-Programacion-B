@@ -26,4 +26,5 @@ int main() {
 	}
 	for (int i : distances)
         cout << i << " ";
+    return 0;
 }
