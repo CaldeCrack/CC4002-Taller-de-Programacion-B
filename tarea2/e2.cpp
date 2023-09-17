@@ -24,6 +24,7 @@ int main() {
         vector<double> trees(m);
         for (int i = 0; i < m; i++)
             cin >> trees[i];
+        sort(trees.begin(), trees.end());
         double izq = 0, der = 1000000;
         while (der - izq > 1e-9) {
             double mid = (izq + der) / 2.0;
