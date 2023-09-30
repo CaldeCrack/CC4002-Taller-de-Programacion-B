@@ -1,5 +1,4 @@
 // https://vjudge.net/contest/583647#problem/B
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,7 +23,7 @@ int main() {
             break;
         paths[i][0] = 1;
     }
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         if (!grid[0][i])
             break;
         paths[0][i] = 1;
@@ -34,8 +33,8 @@ int main() {
         for (int j = 1; j < n; j++) {
             if (!grid[i][j])
                 continue;
-            paths[i][j] = paths[i-1][j] + paths[i][j-1];
+            paths[i][j] = (paths[i-1][j] + paths[i][j-1]) % 1000000007ull;
         }
     }
-    cout << paths[n-1][n-1] % 1000000007 << endl;
+    cout << paths[n-1][n-1] << endl;
 }
